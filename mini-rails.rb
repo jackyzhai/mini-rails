@@ -8,7 +8,7 @@ module WEBrick
     def create_listeners
       address='0.0.0.0'
       port=8081
-      res = Socket::getaddrinfo(address, port, Socket::AF_UNSPEC, Socket::SOCK_STREAM, 1, Socket::AI_PASSIVE)
+      res = Socket::getaddrinfo(address, port, nil, :STREAM)
       sockets = []
       res.each{|ai|
         puts ("TCPServer.new(#{ai[3]}, #{port})")
